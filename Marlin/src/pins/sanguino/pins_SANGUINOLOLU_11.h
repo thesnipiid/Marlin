@@ -293,50 +293,50 @@
 //
 // M3/M4/M5 - Spindle/Laser Control
 //
-#if HAS_CUTTER
-  #if !MB(AZTEEG_X1) && ENABLED(SANGUINOLOLU_V_1_2) && !BOTH(ULTRA_LCD, NEWPANEL)// try to use IO Header
-
-    #define SPINDLE_LASER_ENA_PIN             10  // Pullup or pulldown!
-    #define SPINDLE_LASER_PWM_PIN              4  // Hardware PWM
-    #define SPINDLE_DIR_PIN                   11
-
-  #elif !MB(MELZI)                                // use X stepper motor socket
-
-    /**
-     *  To control the spindle speed and have an LCD you must sacrifice
-     *  the Extruder and pull some signals off the X stepper driver socket.
-     *
-     *  The following assumes:
-     *   - The X stepper driver socket is empty
-     *   - The extruder driver socket has a driver board plugged into it
-     *   - The X stepper wires are attached the the extruder connector
-     */
-
-    /**
-     *  Where to get the spindle signals
-     *
-     *      spindle signal          socket name       socket name
-     *                                         -------
-     *                               /ENABLE  O|     |O  VMOT
-     *                                   MS1  O|     |O  GND
-     *                                   MS2  O|     |O  2B
-     *                                   MS3  O|     |O  2A
-     *                                /RESET  O|     |O  1A
-     *                                /SLEEP  O|     |O  1B
-     *  SPINDLE_LASER_PWM_PIN           STEP  O|     |O  VDD
-     *  SPINDLE_LASER_ENA_PIN         DIR  O|     |O  GND
-     *                                         -------
-     *
-     *  Note: Socket names vary from vendor to vendor.
-     */
-    #undef X_DIR_PIN
-    #undef X_ENABLE_PIN
-    #undef X_STEP_PIN
-    #define X_DIR_PIN                          0
-    #define X_ENABLE_PIN                      14
-    #define X_STEP_PIN                         1
-    #define SPINDLE_LASER_PWM_PIN             15  // Hardware PWM
-    #define SPINDLE_LASER_ENA_PIN             21  // Pullup!
-    #define SPINDLE_DIR_PIN                   -1  // No pin available on the socket for the direction pin
-  #endif
-#endif
+//#if HAS_CUTTER
+//  #if !MB(AZTEEG_X1) && ENABLED(SANGUINOLOLU_V_1_2) && !BOTH(ULTRA_LCD, NEWPANEL)// try to use IO Header
+//
+//    #define SPINDLE_LASER_ENA_PIN             10  // Pullup or pulldown!
+//    #define SPINDLE_LASER_PWM_PIN             14  // Hardware PWM
+//    #define SPINDLE_DIR_PIN                   1
+//
+//  #elif !MB(MELZI)                                // use X stepper motor socket
+//
+//    /**
+//     *  To control the spindle speed and have an LCD you must sacrifice
+//     *  the Extruder and pull some signals off the X stepper driver socket.
+//     *
+//     *  The following assumes:
+//     *   - The X stepper driver socket is empty
+//     *   - The extruder driver socket has a driver board plugged into it
+//     *   - The X stepper wires are attached the the extruder connector
+//     */
+//
+//    /**
+//     *  Where to get the spindle signals
+//     *
+//     *      spindle signal          socket name       socket name
+//     *                                         -------
+//     *                               /ENABLE  O|     |O  VMOT
+//     *                                   MS1  O|     |O  GND
+//     *                                   MS2  O|     |O  2B
+//     *                                   MS3  O|     |O  2A
+//     *                                /RESET  O|     |O  1A
+//     *                                /SLEEP  O|     |O  1B
+//     *  SPINDLE_LASER_PWM_PIN           STEP  O|     |O  VDD
+//     *  SPINDLE_LASER_ENA_PIN         DIR  O|     |O  GND
+//     *                                         -------
+//     *
+//     *  Note: Socket names vary from vendor to vendor.
+//     */
+//    #undef X_DIR_PIN
+//    #undef X_ENABLE_PIN
+//    #undef X_STEP_PIN
+//    #define X_DIR_PIN                          0
+//    #define X_ENABLE_PIN                      14
+//    #define X_STEP_PIN                         1
+//    #define SPINDLE_LASER_PWM_PIN             15  // Hardware PWM
+//    #define SPINDLE_LASER_ENA_PIN             21  // Pullup!
+//    #define SPINDLE_DIR_PIN                   -1  // No pin available on the socket for the direction pin
+//  #endif
+//#endif

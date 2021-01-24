@@ -92,6 +92,9 @@
 
 #define BOARD_INFO_NAME "Anet 1.0"
 
+#undef LED_PIN
+#undef FAN_PIN
+
 //
 // Limit Switches
 //
@@ -104,20 +107,25 @@
 //
 #define X_STEP_PIN                            15
 #define X_DIR_PIN                             21
-#define X_ENABLE_PIN                          14
 
 #define Y_STEP_PIN                            22
 #define Y_DIR_PIN                             23
-#define Y_ENABLE_PIN                          14
 
 #define Z_STEP_PIN                             3
 #define Z_DIR_PIN                              2
+#define E0_STEP_PIN                            1
+
+#define E0_DIR_PIN                             0
+
+#define X_ENABLE_PIN                          14
+#define Y_ENABLE_PIN                          14
+#define E0_ENABLE_PIN                         14
 #define Z_ENABLE_PIN                          26
 
-#define E0_STEP_PIN                            1
-#define E0_DIR_PIN                             0
-#define E0_ENABLE_PIN                         14
 
+#define SPINDLE_LASER_ENA_PIN             10  // Pullup or pulldown!
+#define SPINDLE_LASER_PWM_PIN             4  // Hardware PWM
+#define SPINDLE_DIR_PIN                   11
 //
 // Temperature Sensors
 //
@@ -130,9 +138,6 @@
 #define HEATER_0_PIN                          13  // (extruder)
 #define HEATER_BED_PIN                        12  // (bed)
 
-#ifndef FAN_PIN
-  #define FAN_PIN                              4
-#endif
 
 //
 // Misc. Functions
@@ -181,7 +186,6 @@
 #else
   #define SERVO0_PIN                          27
 #endif
-
 /**
  * ====================================================================
  * =============== Alternative RepRapDiscount Wiring ==================
